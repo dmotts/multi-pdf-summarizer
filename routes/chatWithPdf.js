@@ -1,7 +1,7 @@
 // fileRoutes.js
 const express = require('express');
 const multer = require('multer');
-const {parseFile} = require('../service/fileUploadServiceUsingllama');
+const {parseFile} = require('../service/fileuploadServiceUsingllama');
 /* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const router = express.Router();
 const upload = multer({storage: multer.memoryStorage()});

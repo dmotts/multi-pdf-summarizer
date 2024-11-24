@@ -5,6 +5,9 @@ const pdfToPng = require('pdf-to-png-converter').pdfToPng;
 const fs = require('fs');
 const path = require('path');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 const parseFile = async (file) => {
   console.log('parseFile function called');
   const {originalname} = file;
@@ -82,7 +85,7 @@ const extractTextFromScannedPdf = async (file) => {
 
     const imageText = await ocr({
       filePath: imageFilePath,
-      apiKey: 'c407f8c08f30ed82724a190ec5835940910cff7686d7f6c50822f8ffc9395d0b', // Use your actual API key here
+      apiKey: process.env.LLAMA_API_KEY,
     });
 
     text += imageText + '\n';
