@@ -92,9 +92,9 @@ router.post('/analyze-pdf', upload.single('file'), handleMulterError, async (req
     console.log(req.file.originalname, 'API key index:', apiKeyIndex, 'Request time:', new Date().toLocaleString());
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
-
+    
     console.log(req.file.originalname, 'Response received time:', new Date().toLocaleString());
-
+    
     res.json({
       success: true,
       analysis: responseText,
