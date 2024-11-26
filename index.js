@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const pdfRoute = require('./routes/summarize');
 const chatWithPdfRoute = require('./routes/chatWithPdf');
+const chatWithGeminiRoute = require('./routes/chatWithPDFGemini');
 
 
 const cors = require('cors');
@@ -14,6 +15,7 @@ dotenv.config();
 
 app.use('/summarize', pdfRoute);
 app.use('/pdf-chat', chatWithPdfRoute);
+app.use('/api', chatWithGeminiRoute);
 
 
 const PORT = process.env.PORT || 8000;
